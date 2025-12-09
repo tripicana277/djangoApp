@@ -32,9 +32,16 @@ DEBUG = False
 # ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
 
 ALLOWED_HOSTS = [
+    '*',  # 最初はこれで確実に動かす（後で制限OK）
+    'azurewebsites.net',
+    '.azurewebsites.net',
     'azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net',
     'localhost',
     '127.0.0.1',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net'
 ]
 
 # Application definition
@@ -102,9 +109,7 @@ DATABASES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net'
-]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
