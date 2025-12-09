@@ -29,7 +29,15 @@ SECRET_KEY = 'django-insecure-s5^yi!tl&zo3nr@csa$u^12s@33al_qus2+hlepi-#6blbb83c
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
+ALLOWED_HOSTS = [
+    'azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net',
+    'localhost',
+    '127.0.0.1',
+]
+
+
+# ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
+
 
 # ALLOWED_HOSTS = [
 #     '*',  # 最初はこれで確実に動かす（後で制限OK）
@@ -147,5 +155,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = '/static/'
-# STATIC_ROOT = '/home/site/wwwroot/staticfiles'
+STATIC_URL = 'static/'
