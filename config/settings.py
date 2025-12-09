@@ -29,7 +29,13 @@ SECRET_KEY = 'django-insecure-s5^yi!tl&zo3nr@csa$u^12s@33al_qus2+hlepi-#6blbb83c
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
+# ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
+
+ALLOWED_HOSTS = [
+    'azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net/upload',
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -95,6 +101,10 @@ DATABASES = {
         # 'PORT': '5432',
     }
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net/upload',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
