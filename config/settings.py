@@ -32,7 +32,7 @@ DEBUG = False
 # ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
 
 ALLOWED_HOSTS = [
-    'azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net/upload',
+    'azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net',
     'localhost',
     '127.0.0.1',
 ]
@@ -103,7 +103,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net/upload',
+    'https://azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net'
 ]
 
 # Password validation
