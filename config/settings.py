@@ -44,6 +44,9 @@ CSRF_TRUSTED_ORIGINS = [
     'https://azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net'
 ]
 
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/site/wwwroot/staticfiles'
+
 # Application definition
 
 INSTALLED_APPS = [
