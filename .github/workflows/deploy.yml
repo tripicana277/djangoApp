@@ -1,0 +1,32 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main  # ←デプロイ用ブランチ
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-django
+
+      - name: Run Tests
+        run: pytest
+
+      - name: Deploy to Azure
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: azure1986-fjcuewhcaneya7cu
+          publish-profile: ${{ secrets.AZURE_APP_PUBLISH_PROFILE }}

@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 from io import BytesIO
 
+
 def generate_xml(data: dict):
     root = ET.Element("root")
 

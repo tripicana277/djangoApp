@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import upload_view
+
 # from django.shortcuts import redirect
 
 urlpatterns = [
