@@ -19,3 +19,4 @@ pytokens==0.3.0
 sqlparse==0.5.4
 typing_extensions==4.15.0
 tzdata==2025.2
+gunicorn
