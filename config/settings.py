@@ -28,14 +28,16 @@ SECRET_KEY = "django-insecure-s5^yi!tl&zo3nr@csa$u^12s@33al_qus2+hlepi-#6blbb83c
 
 # ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ["*"]
+
 # DEBUG = False
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net",
-    "localhost",
-    "127.0.0.1",
-]
+# ALLOWED_HOSTS = [
+#     "azure1986-fjcuewhcaneya7cu.southeastasia-01.azurewebsites.net",
+#     "localhost",
+#     "127.0.0.1",
+# ]
 
 
 # ALLOWED_HOSTS = ['*']   # まずはこれで動作確認、あとで制限可
