@@ -1,36 +1,37 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import UploadForm
-from .services.txt_parser import parse_text
-from .services.xml_writer import generate_xml
-from .services.db_service import save_to_db
-from .services.db_service import save_to_db_sql
+from .models import UploadRecord
+from .utils import parse_txt_to_rows, rows_to_xml
 
 
 def upload_view(request):
     if request.method == "POST":
         form = UploadForm(request.POST, request.FILES)
+
         if form.is_valid():
-            uploaded_file = request.FILES["file"]
-            raw_text = uploaded_file.read().decode("utf-8")
+            upload_file = request.FILES["file"]
 
-            # DB 保存
-            # save_to_db_sql(uploaded_file.name, raw_text)
-            save_to_db(uploaded_file.name, raw_text)
+            # TXT解析
+            original_text, rows = parse_txt_to_rows(upload_file)
 
-            # テキスト解析
-            parsed = parse_text(raw_text)
+            # XML生成
+            xml_str = rows_to_xml(rows)
 
-            # XML 生成
-            xml_data = generate_xml(parsed)
+            # DB保存
+            record = UploadRecord.objects.create(
+                filename=upload_file.name,
+                content=original_text,
+                xml_output=xml_str,
+            )
 
-            # XML ダウンロード応答
-            response = HttpResponse(xml_data, content_type="application/xml")
+            # XMLダウンロード
+            response = HttpResponse(xml_str, content_type="application/xml")
             response["Content-Disposition"] = (
-                f'attachment; filename="{uploaded_file.name}.xml"'
+                f'attachment; filename="{record.filename}.xml"'
             )
             return response
     else:
         form = UploadForm()
 
-    return render(request, "upload.html", {"form": form})
+    return render(request, "webapp/upload.html", {"form": form})
