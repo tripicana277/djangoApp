@@ -1,3 +1,4 @@
 Initial commit
-# djangoApp
-This project is deployed to Azure.
+
+djangoApp
+This project is deployed to AWS.
