@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TXT → XML変換</title>
+</head>
+
+<body>
+    <h2>TXTファイルをXMLに変換</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">変換してダウンロード</button>
+    </form>
+
+</body>
+
+</html>

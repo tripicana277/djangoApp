@@ -1,3 +1,4 @@
 Initial commit
-# djangoApp
+
+djangoApp
 This project is deployed to AWS.
